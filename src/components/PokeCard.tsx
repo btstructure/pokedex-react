@@ -1,3 +1,6 @@
+import React from 'react';
+
+
 interface PokeCardProps {
   pokemonList: {name: string}[];
 }

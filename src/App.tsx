@@ -1,6 +1,8 @@
+import React from 'react';
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from 'axios';
 import PokeCard from "./components/PokeCard";
+import "./App.css";
 
 const url = "https://pokeapi.co/api/v2/pokemon?limit=151%27";
 
@@ -20,9 +22,9 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="flex justify-center">
       <PokeCard pokemonList={pokemonList} />
-    </>
+    </div>
   );
 }
 
