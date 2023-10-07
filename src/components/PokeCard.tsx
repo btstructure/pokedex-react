@@ -1,30 +1,33 @@
-import React from 'react';
-
+import React from "react";
 
 interface PokeCardProps {
-  pokemonList: {name: string}[];
+  pokemonList: { name: string }[];
 }
 
-
 function PokeCard({ pokemonList }: PokeCardProps) {
-
-  const displayPokemon = () => {
-    return pokemonList.map((pokemon, index) => {
-      const pokemonIndex = index + 1;
-      const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`;
-
-      return (
-        <div key={index}>
-          <p>{pokemon.name.toUpperCase()}</p>
-          <img src={imageUrl} alt={`Pokemon ${pokemon.name}`} />
-        </div>
-      );
-    });
-  };
-
   return (
-    <div className="object-none object-left bg-color-green-300 w-24 h-24">
-      {displayPokemon()}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      {pokemonList.map((pokemon, index) => {
+        const pokemonIndex = index + 1;
+        const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`;
+
+        return (
+          <div
+            key={index}
+            className="max-w-sm rounded overflow-hidden shadow-lg"
+          >
+            <div className="font-bold text-xl mb-2">
+              {pokemon.name.toUpperCase()}
+            </div>
+            <img
+              src={imageUrl}
+              alt={`Pokemon ${pokemon.name}`}
+              className="w-full"
+            />
+            <div className="px-6 py-4"></div>
+          </div>
+        );
+      })}
     </div>
   );
 }
